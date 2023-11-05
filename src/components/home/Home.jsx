@@ -1,7 +1,9 @@
+import JobTabs from "./job_tabs/JobTabs";
+
 const Home = () => {
     return (
-        <div>
-            <p>i am home</p>
+        <div className="w-11/12 mx-auto">
+            <JobTabs></JobTabs>
         </div>
     );
 };

@@ -1,0 +1,13 @@
+.tablist p {
+    color:gray;
+}
+
+.tab.active {
+    color: rgb(0, 110, 255);
+    border-bottom:1px solid rgb(0, 110, 255);
+}
+
+.tab {
+    transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+}
+  

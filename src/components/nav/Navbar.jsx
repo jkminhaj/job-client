@@ -1,12 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
-
+import './Navbar.css'
 const Navbar = () => {
 
     // dynamic nav menu
     const links = <>
-    <NavLink><li>Home</li></NavLink>
-    <NavLink><li>Blogs</li></NavLink>
-    <NavLink><li>All Jobs</li></NavLink>
+    <NavLink to='/'><li>Home</li></NavLink>
+    <NavLink to='/blogs'><li>Blogs</li></NavLink>
+    <NavLink to='/alljobs'><li>All Jobs</li></NavLink>
 
     {/* If logged in , will show these links */}
     {/* <NavLink><li>My Jobs</li></NavLink>
@@ -33,15 +33,15 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1 gap-5 text-md">
+                    <ul className="menu menu-horizontal gap-1 text-base font-normal">
                         {links}
                     </ul>
                 </div>
                 <div className="navbar-end">
                     {/* If there is no user */}
                     <div className="font-semibold flex gap-2">
-                        <Link to='/join'><button className="py-3 px-5 hover:bg-gray-100 rounded-full">Join Now</button></Link>
-                        <Link to='/login'><button className="py-3 px-5 border border-blue-400 text-blue-400 hover:bg-blue-50 rounded-full">Sign In</button></Link>
+                        <NavLink to='/join'><button className="py-3 px-5 hover:bg-gray-100 rounded-full">Join Now</button></NavLink>
+                        <NavLink to='/login'><button className="py-3 px-5 border border-blue-400 text-blue-400 hover:bg-blue-50 rounded-full">Sign In</button></NavLink>
                     </div>
                 </div>
             </div>

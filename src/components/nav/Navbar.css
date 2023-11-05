@@ -1,0 +1,11 @@
+.navbar-end a.active {
+    color: rgb(0, 128, 255);
+}
+ul a.active {
+    color: rgb(0, 110, 255);
+    border-bottom:1px solid rgb(0, 110, 255); ;
+}
+ul a {
+    padding: 2px 10px;
+    transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+}
