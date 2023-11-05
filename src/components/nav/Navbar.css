@@ -3,7 +3,11 @@
 }
 ul a.active {
     color: rgb(0, 110, 255);
-    border-bottom:1px solid rgb(0, 110, 255); ;
+    border-bottom:1px solid rgba(18, 93, 191, 0.124);
+    border-top:1px solid rgba(0, 110, 255, 0.135); 
+    /* border-left:1px solid rgb(0, 110, 255); */
+    /* border-right:1px solid rgb(0, 110, 255); */
+    /* border-radius: 10px; */
 }
 ul a {
     padding: 2px 10px;
