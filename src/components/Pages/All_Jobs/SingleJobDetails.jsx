@@ -7,6 +7,7 @@ const SingleJobDetails = () => {
     const { _id, name, job_title, job_posting_date, application_deadline, salary_range, job_applicants_number, company_logo, job_banner, description, job_category, email } = useLoaderData();
     const {user} = useContext(AuthContext);
     const [err , setErr] = useState('');
+    console.log(useLoaderData())
     const handleApply = e =>{
         e.preventDefault()
         const form = e.target;
