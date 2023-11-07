@@ -19,7 +19,7 @@ const Navbar = () => {
 
         {/* If logged in , will show these links */}
     </>
-    console.log(user)
+    // console.log(user)
     return (
 
         // change the gap setting 
@@ -34,9 +34,10 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <p className="text-4xl font-semibold text-sky-600">Remot</p>
+                    <p className="hidden md:block md:text-4xl font-semibold text-sky-600">Remot</p>
+                    <p className=" md:hidden text-3xl font-semibold text-sky-600">Remoto</p>
                     <div className="flex gap-1">
-                        <img className="w-10 ml-1 mt-2" src="https://thescarlet.org/wp-content/uploads/2023/03/onlyfans-logo-C7DEFE44F5-seeklogo.com_.png" alt="" />
+                        <img className="md:w-10 hidden md:block ml-1 mt-2" src="https://thescarlet.org/wp-content/uploads/2023/03/onlyfans-logo-C7DEFE44F5-seeklogo.com_.png" alt="" />
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -49,7 +50,7 @@ const Navbar = () => {
                         user ? <>
                             <div className="dropdown dropdown-end">
                                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                    <div className="w-10 rounded-full">
+                                    <div className="md:w-10 w-7 rounded-full">
                                         <img title={user.displayName} src={user.photoURL} />
                                     </div>
                                 </label>
@@ -67,9 +68,9 @@ const Navbar = () => {
 
                         </> : <>
                             {/* If there is no user */}
-                            <div className="font-semibold flex gap-2">
-                                <NavLink to='/join'><button className="py-3 px-5 hover:bg-gray-100 rounded-full">Join Now</button></NavLink>
-                                <NavLink to='/login'><button className="py-3 px-5 border border-blue-400 text-blue-400 hover:bg-blue-50 rounded-full">Sign In</button></NavLink>
+                            <div className="font-semibold flex  gap-1 md:gap-2">
+                                <NavLink to='/join'><button className="text-xs md:text-base  md:py-3 md:px-5 hover:bg-gray-100 rounded-full">Join Now</button></NavLink>
+                                <NavLink to='/login'><button className="md:py-3 text-xs md:px-5 border border-blue-400 text-blue-400 md:text-base px-1 hover:bg-blue-50 rounded-full">Sign In</button></NavLink>
                             </div>
                         </>
                     }

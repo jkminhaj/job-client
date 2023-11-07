@@ -19,7 +19,7 @@ const Applied_Jobs = () => {
 
             <div className="flex justify-end my-3">
                 {/* select */}
-                <select onChange={handleSelect} className="hover:bg-blue-400 border-blue-400 border  hover:text-white py-2 px-4 rounded-md focus:outline-none ">
+                <select onChange={handleSelect} className="hover:bg-blue-400 border-blue-400 border  hover:text-white md:py-2  md:px-4 rounded-md focus:outline-none ">
                     <option value="">All</option>
                     <option value="Remote">Remote Jobs</option>
                     <option value="Hybrid">Hybrid Jobs</option>

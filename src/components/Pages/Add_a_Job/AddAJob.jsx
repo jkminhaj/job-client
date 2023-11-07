@@ -5,19 +5,19 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { AuthContext } from '../../../../AuthProvider';
+import Swal from 'sweetalert2';
+
 const AddAJob = () => {
     const [deadline, setDeadline] = useState(null);
     const [postingDate, setPostingDate] = useState(null);
     const { user } = useContext(AuthContext);
-    //   console.log(startDate)
-    //   console.log(format(startDate, 'yyyy-MM-dd'));
 
 
     //   Backend work
     const handleAdd = e => {
         e.preventDefault();
         const form = e.target;
-        const name = user?.displayName;
+        const name = form.name.value;
         const job_title = form.title.value;
         const job_banner = form.banner.value;
         const job_applicants_number = parseInt(form.applicants.value);
@@ -37,7 +37,7 @@ const AddAJob = () => {
         const application_deadline = format(deadline, 'yyyy-MM-dd');
 
         const newJob = {
-            name, job_title, job_applicants_number, job_banner, job_applicants_number, description, job_category, email, job_posting_date, application_deadline, salary_range
+            name, job_title,  job_banner, job_applicants_number, description, job_category, email, job_posting_date, application_deadline, salary_range
         }
         console.log(newJob)
 
@@ -50,7 +50,16 @@ const AddAJob = () => {
         }).then(res=>res.json())
         .then(data=>{
             if(data.acknowledged){
-                alert('added done')
+                Swal.fire({
+                    position: "top-middle",
+                    icon: "success",
+                    title: "Job Added",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                form.reset();
+                setDeadline(null);
+                setPostingDate(null);
             }
             })
 

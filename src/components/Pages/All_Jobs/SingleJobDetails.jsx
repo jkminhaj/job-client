@@ -33,7 +33,7 @@ const SingleJobDetails = () => {
             }, 3000);
             return;
         }else{
-            fetch('http://localhost:3000/all_applications',{
+            fetch( `http://localhost:3000/all_applications?jobId=${_id}`,{
                 method:'POST',
                 headers:{
                     'content-type':'application/json'
@@ -50,6 +50,9 @@ const SingleJobDetails = () => {
                         timer: 1500
                       });
                     form.reset();
+                    setTimeout(() => {
+                        window.location.reload()
+                    }, 2000);
                 }
             })
         }
@@ -62,7 +65,7 @@ const SingleJobDetails = () => {
                 </div>
                 <div>
                     <div className="flex gap-3 items-center">
-                        <img className="rounded-full w-6 md:w-9" src={company_logo} alt="" />
+                        <img className="rounded-full w-6 md:w-9" src={company_logo||`https://png.pngtree.com/element_our/20200702/ourlarge/pngtree-purple-tick-image_2292529.jpg`} alt="" />
                         <p className="text-2xl md:text-3xl text-blue-400 font-semibold">{job_title}</p>
                     </div>
                     <p className="mt-6  text-lg"><span className="text-xl">Job Details : </span>{description}</p>

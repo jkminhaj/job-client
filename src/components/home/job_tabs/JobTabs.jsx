@@ -48,7 +48,7 @@ const JobTabs = () => {
                 <a className="tab">Tab 3</a>
             </div> */}
             <Tabs onSelect={handleFilter}  className=' my-11'>
-                <TabList className='flex justify-center mb-5 lg:mb-9 tablist'>
+                <TabList className='flex flex-col md:flex-row justify-center mb-5 lg:mb-9 tablist'>
                     <Tab className='tab' selectedClassName='active'>
                         <a>All Jobs</a>
                     </Tab>
