@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../../AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const SingleJobDetails = () => {
     const { _id, name, job_title, job_posting_date, application_deadline, salary_range, job_applicants_number, company_logo, job_banner, description, job_category, email } = useLoaderData();
@@ -59,6 +60,9 @@ const SingleJobDetails = () => {
     }
     return (
         <div className="mx-auto w-11/12 mt-9 md:mt-12">
+            <Helmet>
+                <title>Remoto | Job Details</title>
+            </Helmet>
             <div className="flex md:gap-6 flex-col lg:flex-row">
                 <div>
                     <img src={job_banner} alt="" />

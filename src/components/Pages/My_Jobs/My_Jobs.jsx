@@ -6,13 +6,14 @@ import { } from '@fortawesome/free-brands-svg-icons';
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faPenToSquare, faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 const My_Jobs = () => {
     const [data, setData] = useState([]);
     const { user } = useContext(AuthContext);
 
     // load data
     useEffect(() => {
-        fetch(`http://localhost:3000/all_jobs?email=${user?.email}`)
+        fetch(`http://localhost:3000/all_jobs?email=${user?.email}`,{credentials:'include'})
             .then(res => res.json())
             .then(data => setData(data));
     }, [user])
@@ -56,6 +57,9 @@ const My_Jobs = () => {
 
     return (
         <div className="mx-auto w-11/12 mt-8 md:mt-16">
+            <Helmet>
+                <title>Remoto | My Jobs</title>
+            </Helmet>
             {/* table */}
             <div className="overflow-x-auto">
                 <table className="table">

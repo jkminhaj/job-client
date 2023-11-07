@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../../../../AuthProvider';
 import { useLoaderData } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const Update_job = () => {
     
@@ -73,6 +74,9 @@ const Update_job = () => {
     
     return (
         <div>
+            <Helmet>
+                <title>Remoto | Update Job</title>
+            </Helmet>
             <div>
                 <div className="flex justify-center mt-16">
                     <form onSubmit={handleUpdate} className='md:border rounded-lg p-8'>

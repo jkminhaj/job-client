@@ -6,7 +6,7 @@ const JobTabs = () => {
     const [jobs, setJobs] = useState([]);
     const [filteredJobs, setFilteredJobs] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:3000/all_jobs')
+        fetch('http://localhost:3000/all_jobs_public')
             .then(res => res.json())
             .then(data => setJobs(data))
     }, [])

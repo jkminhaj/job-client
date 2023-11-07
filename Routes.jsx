@@ -10,12 +10,14 @@ import Applied_Jobs from "./src/components/Pages/Applied_Jobs/Applied_Jobs";
 import AddAJob from "./src/components/Pages/Add_a_Job/AddAJob";
 import My_Jobs from "./src/components/Pages/My_Jobs/My_Jobs";
 import Update_job from "./src/components/Pages/My_Jobs/Update_job/Update_job";
+import Error from "./src/components/Error";
 
 // All routes
 export const router = createBrowserRouter([
     {
       path: "/",
       element: <Root></Root>,
+      errorElement:<Error></Error>,
       children:[
         {
           path:'/',

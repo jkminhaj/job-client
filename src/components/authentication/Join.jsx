@@ -6,6 +6,7 @@ import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { updateProfile } from "firebase/auth";
 import { toast, Toaster } from "react-hot-toast";
 import Swal from 'sweetalert2'
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -91,6 +92,9 @@ const Join = () => {
     return (
         <div className="flex flex-col
          justify-center items-center gap-6 md:gap-10 mt-24">
+            <Helmet>
+                <title>Remoto | Join</title>
+            </Helmet>
             <div className="md:border rounded md:shadow pt-8 md:pt-12 md:px-8 pb-8 px-5">
                 <h1 className="text-3xl text-center mb-2 font-medium">Sign Up</h1>
                 <p className="text-sm mb-5 text-center text-blue-500">Join the Community of Professionals</p>

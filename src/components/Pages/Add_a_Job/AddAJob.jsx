@@ -6,6 +6,7 @@ import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { AuthContext } from '../../../../AuthProvider';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const AddAJob = () => {
     const [deadline, setDeadline] = useState(null);
@@ -66,6 +67,9 @@ const AddAJob = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Remoto | Add Job</title>
+            </Helmet>
             <div className="flex justify-center mt-16">
                 <form onSubmit={handleAdd} className='md:border rounded-lg p-8'>
                     <div className='mb-5 flex justify-center'>

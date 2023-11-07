@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import { AuthContext } from "../../../../AuthProvider";
 const AllJobs = () => {
     const [data, setData] = useState([]);
     const [title, setTitle] = useState('');
+    const {user} = useContext(AuthContext);
     useEffect(() => {
         fetch(`http://localhost:3000/all_jobs?job_title=${title}`)
             .then(res => res.json())
@@ -18,6 +21,9 @@ const AllJobs = () => {
     }
     return (
         <div className=" mx-auto w-11/12 mt-7">
+            <Helmet>
+                <title>Remoto | All Jobs</title>
+            </Helmet>
             {/* search */}
             <div className="flex justify-center mt-2 mb-12">
                 <form onSubmit={handleSearch} className="flex gap-2">

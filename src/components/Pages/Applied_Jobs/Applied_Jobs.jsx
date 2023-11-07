@@ -1,13 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const Applied_Jobs = () => {
     const [data, setData] = useState([]);
     const [catego , setCatego] = useState('');
     const { user } = useContext(AuthContext);
     useEffect(() => {
-        fetch(`http://localhost:3000/all_applications?category=${catego}&email=${user.email}`)
+        fetch(`http://localhost:3000/all_applications?category=${catego}&email=${user.email}`,{credentials:'include'})
             .then(res => res.json())
             .then(data => setData(data));
     }, [catego])
@@ -16,6 +17,9 @@ const Applied_Jobs = () => {
     }
     return (
         <div className="mx-auto w-11/12">
+            <Helmet>
+                <title>Remoto | Applied Jobs</title>
+            </Helmet>
 
             <div className="flex justify-end my-3">
                 {/* select */}
