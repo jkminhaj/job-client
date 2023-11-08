@@ -34,7 +34,7 @@ const SingleJobDetails = () => {
             }, 3000);
             return;
         }else{
-            fetch( `http://localhost:3000/all_applications?jobId=${_id}`,{
+            fetch( `https://job-server-tau.vercel.app/all_applications?jobId=${_id}`,{
                 method:'POST',
                 headers:{
                     'content-type':'application/json'

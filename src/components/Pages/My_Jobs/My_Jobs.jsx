@@ -13,7 +13,7 @@ const My_Jobs = () => {
 
     // load data
     useEffect(() => {
-        fetch(`http://localhost:3000/all_jobs?email=${user?.email}`,{credentials:'include'})
+        fetch(`https://job-server-tau.vercel.app/my_jobs?email=${user?.email}`, { credentials: 'include' })
             .then(res => res.json())
             .then(data => setData(data));
     }, [user])
@@ -35,13 +35,13 @@ const My_Jobs = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 //   if confirm delete
-                fetch(`http://localhost:3000/all_jobs/${id}`, {
+                fetch(`https://job-server-tau.vercel.app/all_jobs/${id}`, {
                     method: 'DELETE'
                 }).then(res => res.json())
                     .then(res => {
                         if (res.acknowledged) {
                             // if deleted completely
-                            const filterdData = data.filter(job=>id!==job._id);
+                            const filterdData = data.filter(job => id !== job._id);
                             setData(filterdData)
                             Swal.fire({
                                 title: "Job Deleted !",
@@ -56,43 +56,61 @@ const My_Jobs = () => {
 
 
     return (
-        <div className="mx-auto w-11/12 mt-8 md:mt-16">
-            <Helmet>
-                <title>Remoto | My Jobs</title>
-            </Helmet>
-            {/* table */}
-            <div className="overflow-x-auto">
-                <table className="table">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th>Job Title</th>
-                            <th>Posting Date</th>
-                            <th>Salary</th>
-                            <th>Category</th>
-                            <th>Deadline</th>
-                            <th>Applicants</th>
-                            <th>Action</th>
+        <div>
+                        <Helmet>
+                            <title>Remoto | My Jobs</title>
+                        </Helmet>
+            {data.length > 0
+                ?
+                <>
+                    <div className="mx-auto w-11/12 mt-8 md:mt-16">
+                        {/* table */}
+                        <div className="overflow-x-auto">
+                            <table className="table">
+                                {/* head */}
+                                <thead>
+                                    <tr>
+                                        <th>Job Title</th>
+                                        <th>Posting Date</th>
+                                        <th>Salary</th>
+                                        <th>Category</th>
+                                        <th>Deadline</th>
+                                        <th>Applicants</th>
+                                        <th>Action</th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data.map(info => <tr key={info._id}>
-                            <td>{info.job_title}</td>
-                            <td>{info.job_posting_date}</td>
-                            <td>${info.salary_range[0]}-${info.salary_range[1]}</td>
-                            <td>{info.job_category}</td>
-                            <td>{info.application_deadline}</td>
-                            <td>{info.job_applicants_number}</td>
-                            <td><div className="flex gap-5">
-                                <button onClick={() => handleDelete(info._id)}><FontAwesomeIcon className="text-red-400 text-base hover:text-black" icon={faTrashAlt} /></button>
-                                <Link to={`/updatejob/${info._id}`} ><FontAwesomeIcon className="text-blue-400 text-base hover:text-black" icon={faPenToSquare} /></Link>
-                            </div></td>
-                        </tr>)}
-                    </tbody>
-                </table>
-            </div>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {data.map(info => <tr key={info._id}>
+                                        <td>{info.job_title}</td>
+                                        <td>{info.job_posting_date}</td>
+                                        <td>${info.salary_range[0]}-${info.salary_range[1]}</td>
+                                        <td>{info.job_category}</td>
+                                        <td>{info.application_deadline}</td>
+                                        <td>{info.job_applicants_number}</td>
+                                        <td><div className="flex gap-5">
+                                            <button onClick={() => handleDelete(info._id)}><FontAwesomeIcon className="text-red-400 text-base hover:text-black" icon={faTrashAlt} /></button>
+                                            <Link to={`/updatejob/${info._id}`} ><FontAwesomeIcon className="text-blue-400 text-base hover:text-black" icon={faPenToSquare} /></Link>
+                                        </div></td>
+                                    </tr>)}
+                                </tbody>
+                            </table>
+                        </div>
 
+                    </div>
+                </>
+                :
+                <>
+                    <div>
+                        <div className="flex justify-center md:mt-5">
+                            <div>
+                            <img src="https://cdnl.iconscout.com/lottie/premium/thumb/shopping-bag-6866084-5624247.gif" alt="" />
+                            <p className="text-4xl text-center font-medium text-blue-400">No jobs found</p>
+                            </div>
+                        </div>
+                    </div>
+                </>
+            }
         </div>
     );
 };

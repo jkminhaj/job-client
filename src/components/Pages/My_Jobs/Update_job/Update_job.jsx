@@ -50,7 +50,7 @@ const Update_job = () => {
         const updatedJobInfo = {name,job_title,job_banner,job_category,job_applicants_number,job_posting_date,description,application_deadline,salary_range};
         
         // Update to backend
-        fetch(`http://localhost:3000/all_jobs/${_id}`,{
+        fetch(`https://job-server-tau.vercel.app/all_jobs/${_id}`,{
             method:'PUT',
             headers:{
                 'content-type':'application/json',

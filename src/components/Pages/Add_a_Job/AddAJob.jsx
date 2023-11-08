@@ -42,7 +42,7 @@ const AddAJob = () => {
         }
         console.log(newJob)
 
-        fetch('http://localhost:3000/all_jobs', {
+        fetch('https://job-server-tau.vercel.app/all_jobs', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

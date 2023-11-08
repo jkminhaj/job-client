@@ -38,7 +38,7 @@ export const router = createBrowserRouter([
         {
           path:'/singlejobdetails/:id',
           element:<PrivateRoute><SingleJobDetails></SingleJobDetails></PrivateRoute>,
-          loader:({params})=>fetch(`http://localhost:3000/all_jobs/${params.id}`)
+          loader:({params})=>fetch(`https://job-server-tau.vercel.app/all_jobs/${params.id}`)
         },
         {
           path:'/appliedjobs',
@@ -55,7 +55,7 @@ export const router = createBrowserRouter([
         {
           path:'/updatejob/:id',
           element:<Update_job></Update_job>,
-          loader:({params})=>fetch(`http://localhost:3000/all_jobs/${params.id}`)
+          loader:({params})=>fetch(`https://job-server-tau.vercel.app/all_jobs/${params.id}`)
         }
       ]
     },

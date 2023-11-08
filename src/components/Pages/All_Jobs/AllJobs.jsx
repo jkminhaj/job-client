@@ -9,7 +9,7 @@ const AllJobs = () => {
     const [title, setTitle] = useState('');
     const {user} = useContext(AuthContext);
     useEffect(() => {
-        fetch(`http://localhost:3000/all_jobs?job_title=${title}`)
+        fetch(`https://job-server-tau.vercel.app/all_jobs?job_title=${title}`)
             .then(res => res.json())
             .then(data => setData(data))
     }, [title])
