@@ -23,7 +23,7 @@ const Footer = () => {
                     <a className="link link-hover">Cookie policy</a>
                 </nav>
             </footer> */}
-            <footer className="footer px-10 py-4 border-t   border-blue-800 text-base-content  md:flex-row flex-col flex justify-between">
+            <footer className="footer px-10 py-4 border-t   border-gray-700 text-base-content  md:flex-row flex-col flex justify-between">
                 <aside className="items-center grid-flow-col">
                     <img src="https://thescarlet.org/wp-content/uploads/2023/03/onlyfans-logo-C7DEFE44F5-seeklogo.com_.png" className="w-8" alt="" />
                     <p>© 2023 Remoto, Inc.</p>
