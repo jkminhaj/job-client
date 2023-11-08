@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
@@ -19,6 +19,7 @@ const Join = () => {
         connectGoogle } = useContext(AuthContext)
     const [visibility, setVisibility] = useState(false);
     const [error , setError] = useState('');
+    const location = useLocation();
     const navigate = useNavigate();
 
 
@@ -74,7 +75,7 @@ const Join = () => {
                         showConfirmButton: false,
                         timer: 1500
                       })
-                    navigate('/');
+                    navigate(location?.state? location.state : '/');;
                     setTimeout(() => { window.location.reload() }, 1000)
                 })
             })
@@ -117,7 +118,7 @@ const Join = () => {
                     <div className="flex-grow border-t border-gray-300"></div>
                 </div>
 
-                <button onClick={() => { connectGoogle().then(()=>{navigate('/')}) }} className="w-full font-medium border py-3 rounded-full flex hover:bg-slate-50 justify-center items-center gap-3"> <FontAwesomeIcon color="#0080FF" icon={faGoogle} /> <p>Continue with Google</p></button>
+                <button onClick={() => { connectGoogle().then(()=>{navigate(location?.state? location.state : '/');}) }} className="w-full font-medium border py-3 rounded-full flex hover:bg-slate-50 justify-center items-center gap-3"> <FontAwesomeIcon color="#0080FF" icon={faGoogle} /> <p>Continue with Google</p></button>
                 <p className="text-center mt-6">Already on Remoto? <Link to='/login'><span className="text-blue-500 cursor-pointer font-semibold">Sign in</span></Link></p>
             </div>
             <Toaster></Toaster>

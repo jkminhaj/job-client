@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
@@ -10,6 +10,7 @@ import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const [visibility, setVisibility] = useState(false);
+    const location = useLocation();
     const navigate = useNavigate();
     const {
         testing,
@@ -46,8 +47,8 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 1500
                   })
-                  navigate('/');
-                  setTimeout(() => { window.location.reload() }, 1000)
+                  navigate(location?.state? location.state : '/');
+                //   setTimeout(() => { window.location.reload() }, 1000)
             }).catch(err=>{
                 setLoading(false)
                     if(err.message==='Firebase: Error (auth/invalid-email).'){
@@ -86,7 +87,7 @@ const Login = () => {
                     <div className="flex-grow border-t border-gray-300"></div>
                 </div>
                 <p className="text-xs mb-3">By clicking Continue, you agree to Remoto’s <span className="font-semibold text-blue-400">User  Agreement</span>, <span className="font-semibold text-blue-400">Privacy Policy</span>, and <span className="font-semibold text-blue-400">Cookie Policy</span>.</p>
-                <button onClick={() => { connectGoogle().then(()=>{navigate('/')}) }} className="w-full font-medium border py-3 rounded-full flex hover:bg-slate-50 justify-center items-center gap-3"> <FontAwesomeIcon color="#0080FF" icon={faGoogle} /> <p>Continue with Google</p></button>
+                <button onClick={() => { connectGoogle().then(()=>{navigate(location?.state? location.state : '/');}) }} className="w-full font-medium border py-3 rounded-full flex hover:bg-slate-50 justify-center items-center gap-3"> <FontAwesomeIcon color="#0080FF" icon={faGoogle} /> <p>Continue with Google</p></button>
             </div>
             <div>
                 <p>New to Remoto? <Link to='/join'><span className="text-blue-500 cursor-pointer font-semibold">Join now</span></Link> </p>
