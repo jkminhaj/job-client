@@ -66,7 +66,7 @@ const My_Jobs = () => {
                     <div className="mx-auto w-11/12 mt-8 md:mt-16">
                         {/* table */}
                         <div className="overflow-x-auto">
-                            <table className="table">
+                            <table className={`table ${data.length<5&&'md:mb-72 lg:mb-96 mb-64'}`}>
                                 {/* head */}
                                 <thead>
                                     <tr>
