@@ -2,6 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../AuthProvider";
 import { Helmet } from "react-helmet-async";
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import PDF from "./my_pdf/PDF";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownload, faFileDownload } from "@fortawesome/free-solid-svg-icons";
+
 
 const Applied_Jobs = () => {
     const [data, setData] = useState([]);
@@ -23,9 +28,13 @@ const Applied_Jobs = () => {
             {data.length > 0 ?
                 <>
                     <div className="mx-auto w-11/12">
-                        
+                        {console.log(data)}
 
-                        <div className="flex justify-end my-3">
+                        <div className="flex items-center gap-4 justify-end my-3">
+                            <PDFDownloadLink document={<PDF name={user.displayName} data={data}></PDF>} fileName="applied jobs summary.pdf">
+                                <button title="Download  Summery"><FontAwesomeIcon className="text-blue-500 hover:text-blue-700" icon={faFileDownload}></FontAwesomeIcon></button>
+                            </PDFDownloadLink>
+                            
                             {/* select */}
                             <select onChange={handleSelect} className="hover:bg-blue-400 border-blue-400 border  hover:text-white md:py-2  md:px-4 rounded-md focus:outline-none ">
                                 <option value="">All</option>
