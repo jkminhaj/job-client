@@ -34,7 +34,8 @@ const PDF = ({ data, name }) => {
     border:{
       border:1,
       marginVertical:5,
-      maxWidth:'50%'
+      maxWidth:'50%',
+      padding:15
     }
   });
 

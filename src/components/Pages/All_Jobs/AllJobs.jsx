@@ -58,7 +58,7 @@ const AllJobs = () => {
                                         <td>{info.job_posting_date}</td>
                                         <td>{info.application_deadline}</td>
                                         <td>${info.salary_range[0]}-${info.salary_range[1]}</td>
-                                        <td><Link to={`/singlejobdetails/${info._id}`} ><button>Details</button></Link></td>
+                                        <td><Link to={`/singlejobdetails/${info._id}`} ><button className="border px-2 py-1 rounded">Details</button></Link></td>
                                     </tr>)}
                                 </tbody>
                             </table>
