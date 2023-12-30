@@ -1,10 +1,8 @@
-
 # Job Seeking Website
 
 # live link: https://job2324-7cf51.web.app
 
 Welcome to a Job Seeking Website, a full-stack web application designed for job seekers and employers. This project aims to create a visually appealing and user-friendly platform for posting, searching, and applying for jobs.
-
 ## Technologies Used:
 
 ### Frontend:
