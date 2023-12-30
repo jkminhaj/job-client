@@ -3,9 +3,9 @@ import { AuthContext } from "../../../../AuthProvider";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { } from '@fortawesome/free-brands-svg-icons';
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faPenToSquare, faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 import Swal from "sweetalert2";
+import empty from '../../../assets/empty.gif'
 import { Helmet } from "react-helmet-async";
 const My_Jobs = () => {
     const [data, setData] = useState([]);
@@ -57,16 +57,16 @@ const My_Jobs = () => {
 
     return (
         <div>
-                        <Helmet>
-                            <title>Remoto | My Jobs</title>
-                        </Helmet>
+            <Helmet>
+                <title>Remoto | My Jobs</title>
+            </Helmet>
             {data.length > 0
                 ?
                 <>
                     <div className="mx-auto w-11/12 mt-8 md:mt-16">
                         {/* table */}
                         <div className="overflow-x-auto">
-                            <table className={`table ${data.length<5&&'md:mb-72 lg:mb-96 mb-64'}`}>
+                            <table className={`table ${data.length < 5 && 'md:mb-72 lg:mb-96 mb-64'}`}>
                                 {/* head */}
                                 <thead>
                                     <tr>
@@ -104,8 +104,8 @@ const My_Jobs = () => {
                     <div>
                         <div className="flex justify-center md:mt-5">
                             <div>
-                            <img src="https://cdnl.iconscout.com/lottie/premium/thumb/shopping-bag-6866084-5624247.gif" alt="" />
-                            <p className="text-4xl text-center font-medium text-blue-400">No jobs found</p>
+                                <img src={empty} alt="" />
+                                <p className="text-4xl text-center font-medium text-blue-400">No jobs found</p>
                             </div>
                         </div>
                     </div>
