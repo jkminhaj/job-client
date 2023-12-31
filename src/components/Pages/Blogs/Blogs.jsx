@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-
+import nest from "../../../assets/nest.gif"
 const Blogs = () => {
     return (
         <div className="mx-auto w-11/12 ">
@@ -52,7 +52,7 @@ const Blogs = () => {
                         </div>
                     </div>
                     <div className="" >
-                        <img className="w-96" src="https://z-p3-scontent.fdac12-1.fna.fbcdn.net/v/t1.15752-9/370336283_1357459981545107_7869963061585560790_n.png?_nc_cat=102&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeG9bganyTnMkSY76W9LJmUjsxIMqNm156WzEgyo2bXnpSqUF01HIIDSzSeL-ip5UvDmmPvjeq9LWzdHd-nsgHcN&_nc_ohc=xswthOGnav8AX8O8lx_&_nc_ht=z-p3-scontent.fdac12-1.fna&oh=03_AdTyKmLVnTiwTOhUswc5yWZKfHHl-lYDS3v5qb4y0ZjKvw&oe=65730D4B" alt="" />
+                        <img className="w-96" src={nest} alt="" />
                     </div>
                 </div>
                 {/* first */}
