@@ -25,7 +25,8 @@ const Explore = () => {
             <p>
               If you’ve ever felt yourself tensing up while staring down a deadline or important meeting, you’re not alone.
             </p>
-            <p className="mt-4 font-medium text-blue-600">read more</p>
+            <a href='https://www.who.int//news-room/fact-sheets/detail/mental-health-at-work/?gclid=CjwKCAiAnL-sBhBnEiwAJRGignN8yqtiIaGkRAAapahD9bqGvlmc0_G4X9o738ChkTSFUvpPgvGeCxoCTRAQAvD_BwE'
+            target='_blank' className="mt-4 font-medium text-blue-600 hover:underline cursor-pointer">Read more</a>
             <p className="text-xs mt-1">Javed Khan</p>
             <p className="text-xs mt-2">Nov 6, 2023</p>
           </div>
@@ -47,7 +48,8 @@ const Explore = () => {
             <p>
               Building an online personal brand for yourself is an important part of moving your career forward. When you hear
             </p>
-            <p className="mt-4 font-medium text-blue-600">read more</p>
+            <a href='https://www.mereka.my/blog/personal-branding-action-plan?gad_source=1&gclid=CjwKCAiAnL-sBhBnEiwAJRGiglGnnrrxP-Lp6gt0X0ML02udMGMRfk3p4MpACjw5Gf4dvg0XekXeGhoChNEQAvD_BwE'
+            target='_blank' className="mt-4 font-medium text-blue-600 hover:underline cursor-pointer">Read more</a>
             <p className="text-xs mt-1">Nami Mali</p>
             <p className="text-xs mt-2">Oct 25, 2023</p>
           </div>
@@ -69,7 +71,8 @@ const Explore = () => {
             <p>
               When asked in a recent poll on tracking at work, a number of employees admitted they didn't know if they were.
             </p>
-            <p className="mt-4 font-medium text-blue-600">read more</p>
+            <a href='https://fortune.com/2023/07/27/remote-workers-hate-being-spied-on-less-productive/'
+            target='_blank' className="mt-4 font-medium text-blue-600 hover:underline cursor-pointer">Read more</a>
             <p className="text-xs mt-1">James Rou</p>
             <p className="text-xs mt-2">Jan 12, 2023</p>
           </div>
@@ -91,7 +94,8 @@ const Explore = () => {
             <p>
               If you’ve ever felt yourself tensing up while staring down a deadline or important meeting, you’re not alone.
             </p>
-            <p className="mt-4 font-medium text-blue-600">read more</p>
+            <a href='https://jiyan.org/psychotherapy/?gclid=CjwKCAiAnL-sBhBnEiwAJRGiggegp2PnthPqIuwCQnLBhQ2pxoN_29EajztN1s2QswYKTm8D3pHKnBoCT-MQAvD_BwE'
+            target='_blank' className="mt-4 font-medium text-blue-600 hover:underline cursor-pointer">Read more</a>
             <p className="text-xs mt-1">Naila alia</p>
             <p className="text-xs mt-2">Feb 05, 2023</p>
           </div>
