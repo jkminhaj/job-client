@@ -1,4 +1,4 @@
-# Job Seeking Website
+# Job Seeking Platform
 
 # live link: https://job2324-7cf51.web.app
 
