@@ -15,7 +15,7 @@ const Explore = () => {
         >
           <img
             className="w-full h-52 rounded-t-md"
-            src="https://blog-consumer.glassdoor.com/app/uploads/sites/2/2023_perfectionism-at-work_640x427.png"
+            src="https://blog.kazee.id/wp-content/uploads/2022/04/beaac187-5487-41c6-86f6-8e5db1393f46.jpg"
             alt=""
           />
           <div className="px-4 mt-3 pb-2  bg-white">
@@ -25,7 +25,8 @@ const Explore = () => {
             <p>
               If you’ve ever felt yourself tensing up while staring down a deadline or important meeting, you’re not alone.
             </p>
-            <p className="mt-4 font-medium text-blue-600">read more</p>
+            <a href='https://www.who.int//news-room/fact-sheets/detail/mental-health-at-work/?gclid=CjwKCAiAnL-sBhBnEiwAJRGignN8yqtiIaGkRAAapahD9bqGvlmc0_G4X9o738ChkTSFUvpPgvGeCxoCTRAQAvD_BwE'
+            target='_blank' className="mt-4 font-medium text-blue-600 hover:underline cursor-pointer">Read more</a>
             <p className="text-xs mt-1">Javed Khan</p>
             <p className="text-xs mt-2">Nov 6, 2023</p>
           </div>
@@ -37,7 +38,7 @@ const Explore = () => {
         >
           <img
             className="w-full h-52 rounded-t-md"
-            src="https://blog-consumer.glassdoor.com/app/uploads/sites/2/2023_GD_Tips-for-Building-an-Online-Personal-Brand-for-Growing-Your-Career_BLUE_3687x2459-scaled.jpg"
+            src="https://www.lystloc.com/blog/wp-content/uploads/2023/07/A-Look-Through-On-Employee-Monitoring-Policy-In-India.webp"
             alt=""
           />
           <div className="px-4 mt-3 pb-2  bg-white">
@@ -47,7 +48,8 @@ const Explore = () => {
             <p>
               Building an online personal brand for yourself is an important part of moving your career forward. When you hear
             </p>
-            <p className="mt-4 font-medium text-blue-600">read more</p>
+            <a href='https://www.mereka.my/blog/personal-branding-action-plan?gad_source=1&gclid=CjwKCAiAnL-sBhBnEiwAJRGiglGnnrrxP-Lp6gt0X0ML02udMGMRfk3p4MpACjw5Gf4dvg0XekXeGhoChNEQAvD_BwE'
+            target='_blank' className="mt-4 font-medium text-blue-600 hover:underline cursor-pointer">Read more</a>
             <p className="text-xs mt-1">Nami Mali</p>
             <p className="text-xs mt-2">Oct 25, 2023</p>
           </div>
@@ -59,7 +61,7 @@ const Explore = () => {
         >
           <img
             className="w-full h-52 rounded-t-md"
-            src="https://blog-consumer.glassdoor.com/app/uploads/sites/2/2023_GD_Tracking-results-not-hours_T_Orange_4501x4501-scaled.jpg"
+            src="https://clockly.com/images/blog/employee-monitoring-software-pros-cons.png?v=1670827896263470492"
             alt=""
           />
           <div className="px-4 mt-3 pb-2  bg-white">
@@ -69,7 +71,8 @@ const Explore = () => {
             <p>
               When asked in a recent poll on tracking at work, a number of employees admitted they didn't know if they were.
             </p>
-            <p className="mt-4 font-medium text-blue-600">read more</p>
+            <a href='https://fortune.com/2023/07/27/remote-workers-hate-being-spied-on-less-productive/'
+            target='_blank' className="mt-4 font-medium text-blue-600 hover:underline cursor-pointer">Read more</a>
             <p className="text-xs mt-1">James Rou</p>
             <p className="text-xs mt-2">Jan 12, 2023</p>
           </div>
@@ -91,7 +94,8 @@ const Explore = () => {
             <p>
               If you’ve ever felt yourself tensing up while staring down a deadline or important meeting, you’re not alone.
             </p>
-            <p className="mt-4 font-medium text-blue-600">read more</p>
+            <a href='https://jiyan.org/psychotherapy/?gclid=CjwKCAiAnL-sBhBnEiwAJRGiggegp2PnthPqIuwCQnLBhQ2pxoN_29EajztN1s2QswYKTm8D3pHKnBoCT-MQAvD_BwE'
+            target='_blank' className="mt-4 font-medium text-blue-600 hover:underline cursor-pointer">Read more</a>
             <p className="text-xs mt-1">Naila alia</p>
             <p className="text-xs mt-2">Feb 05, 2023</p>
           </div>
