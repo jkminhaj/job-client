@@ -17,5 +17,5 @@ ul a {
     transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
 }
 ul a:hover {
-    color: rgb(8, 6, 6);
+    color: black;
 }

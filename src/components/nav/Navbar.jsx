@@ -23,7 +23,7 @@ const Navbar = () => {
     return (
 
         // change the gap setting 
-        <div className="w-11/12 border-b-2 border-gray-300 relative mx-auto">
+        <div className="w-11/12 border-b-2 md:border-gray-300 relative mx-auto">
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -40,7 +40,7 @@ const Navbar = () => {
                         <img className="md:w-10 hidden md:block ml-1 mt-2" src="https://thescarlet.org/wp-content/uploads/2023/03/onlyfans-logo-C7DEFE44F5-seeklogo.com_.png" alt="" />
                     </div>
                 </div>
-                <div className="navbar-center absolute  right-1/3 -bottom-2 hidden lg:flex">
+                <div className={`navbar-center absolute  ${user?'right-1/3':'right-1/2'} -bottom-2 hidden lg:flex`}>
                     <ul className="menu menu-horizontal gap-1  font-normal">
                         {links}
                     </ul>

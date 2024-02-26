@@ -1,4 +1,4 @@
-# Job Seeking Website
+# Job Seeking Platform
 
 # live link: https://job2324-7cf51.web.app
 
@@ -43,11 +43,3 @@ Welcome to a Job Seeking Website, a full-stack web application designed for job 
 ### Dynamic Website Title:
 - Dynamically changing the website title according to the route.
 
-### Meaningful Component Names and Folder Structure:
-- Organized components, folders, and routes with meaningful names.
-
-### Optional Features
-- Added a spinner for loading states.
-- Explored and implemented animations from Framer Motion.
-- Explored and implemented Tanstack Query Mutations.
-- [Specify your own extra feature].
