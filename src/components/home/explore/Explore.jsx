@@ -15,7 +15,7 @@ const Explore = () => {
         >
           <img
             className="w-full h-52 rounded-t-md"
-            src="https://blog-consumer.glassdoor.com/app/uploads/sites/2/2023_perfectionism-at-work_640x427.png"
+            src="https://blog.kazee.id/wp-content/uploads/2022/04/beaac187-5487-41c6-86f6-8e5db1393f46.jpg"
             alt=""
           />
           <div className="px-4 mt-3 pb-2  bg-white">
@@ -38,7 +38,7 @@ const Explore = () => {
         >
           <img
             className="w-full h-52 rounded-t-md"
-            src="https://blog-consumer.glassdoor.com/app/uploads/sites/2/2023_GD_Tips-for-Building-an-Online-Personal-Brand-for-Growing-Your-Career_BLUE_3687x2459-scaled.jpg"
+            src="https://www.lystloc.com/blog/wp-content/uploads/2023/07/A-Look-Through-On-Employee-Monitoring-Policy-In-India.webp"
             alt=""
           />
           <div className="px-4 mt-3 pb-2  bg-white">
@@ -61,7 +61,7 @@ const Explore = () => {
         >
           <img
             className="w-full h-52 rounded-t-md"
-            src="https://blog-consumer.glassdoor.com/app/uploads/sites/2/2023_GD_Tracking-results-not-hours_T_Orange_4501x4501-scaled.jpg"
+            src="https://clockly.com/images/blog/employee-monitoring-software-pros-cons.png?v=1670827896263470492"
             alt=""
           />
           <div className="px-4 mt-3 pb-2  bg-white">

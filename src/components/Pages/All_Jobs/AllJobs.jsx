@@ -91,14 +91,22 @@ const JobCard = ({ info }) => {
             className="border p-4 mb-4 rounded-md shadow-md"
             whileHover={{ scale: 1.05 }}
         >
-            <h3 className="text-lg font-bold mb-2">{info.job_title}</h3>
-            <p>{info.name}</p>
-            <p>Posting Date: {info.job_posting_date}</p>
-            <p>Deadline: {info.application_deadline}</p>
-            <p>Salary: ${info.salary_range[0]}-${info.salary_range[1]}</p>
-            <Link to={`/singlejobdetails/${info._id}`}>
-                <button className="border px-2 py-1 rounded hover">Details</button>
-            </Link>
+            <h3 className="text-lg font-semibold ">{info.job_title}</h3>
+            <p className="mb-2 font-semibold text-gray-500">{info.name}</p>
+            {/* <p>Posted on : {info.job_posting_date}</p> */}
+            <div className="flex justify-between items-end mt-3">
+                <div>
+                    <p className="">Deadline: {info.application_deadline}</p>
+                    <p className="">Salary: ${info.salary_range[0]}-${info.salary_range[1]}</p>
+                </div>
+                <div>
+                    <Link to={`/singlejobdetails/${info._id}`}>
+                        <button className="border px-2 py-1 rounded font-semibold text-white bg-blue-400 hover:bg-blue-500">Details</button>
+                    </Link>
+                </div>
+            </div>
+
+
         </motion.div>
     );
 };
