@@ -15,7 +15,7 @@ const Explore = () => {
         >
           <img
             className="w-full h-52 rounded-t-md"
-            src="https://blog.kazee.id/wp-content/uploads/2022/04/beaac187-5487-41c6-86f6-8e5db1393f46.jpg"
+            src="https://blog-consumer.glassdoor.com/site-us/wp-content/uploads/sites/2/2023_perfectionism-at-work_640x427.png?w=640"
             alt=""
           />
           <div className="px-4 mt-3 pb-2  bg-white">
