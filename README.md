@@ -5,7 +5,6 @@
 Welcome to a Job Seeking Website, a full-stack web application designed for job seekers and employers. This project aims to create a visually appealing and user-friendly platform for posting, searching, and applying for jobs.
 ## Technologies Used:
 
-
 ### Frontend:
 - **React.js:** Building interactive UI components and managing state.
 - **Axios:** Making HTTP requests for seamless data communication.
