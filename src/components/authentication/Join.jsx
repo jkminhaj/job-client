@@ -1,129 +1,130 @@
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { updateProfile } from "firebase/auth";
 import { toast, Toaster } from "react-hot-toast";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 
-
-
 const Join = () => {
-    const {
-        loading,
-        auth,
-        createUser,
-        setLoading,
-        connectGoogle } = useContext(AuthContext)
-    const [visibility, setVisibility] = useState(false);
-    const [error , setError] = useState('');
-    const location = useLocation();
-    const navigate = useNavigate();
+  const { loading, auth, createUser, setLoading, connectGoogle } = useContext(AuthContext);
+  const [visibility, setVisibility] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
+  const errorNotify = (msg) => toast.error(msg, { style: { borderRadius: "12px" } });
 
-    // Sign Up button fuctions
-    const handleSubmit = e => {
-        e.preventDefault();
-        const form = e.target;
-        const email = form.email.value;
-        const password = form.password.value;
-        const name = form.name.value;
-        let image = form.image.value;
+  const handleSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const name = form.name.value;
+    let image = form.image.value || "https://api.dicebear.com/7.x/initials/svg?seed=" + name;
 
-        if(!image){
-            image = 'https://editzstock.com/wp-content/uploads/2022/05/Name-logo-png.jpg';
-        }
+    if (password.length < 5) { errorNotify("Password must be at least 6 characters"); return; }
+    if (!/[A-Z]/.test(password)) { errorNotify("Password needs at least 1 capital letter"); return; }
+    if (!/[^A-Za-z0-9]/.test(password)) { errorNotify("Password needs at least 1 special character"); return; }
 
-         // sweet toast
-         const errorNotify = (e) => toast(e,
-            {
-                icon: '',
-                style: {
-                    borderRadius: '50px',
-                    background: 'white',
-                    color: 'red',
-                },
-            });
+    createUser(email, password)
+      .then(() => updateProfile(auth.currentUser, { displayName: name, photoURL: image }))
+      .then(() => {
+        Swal.fire({ position:"top-middle", icon:"success", title:"Account created!", showConfirmButton:false, timer:1500 });
+        navigate(location?.state || "/");
+        setTimeout(() => window.location.reload(), 1000);
+      })
+      .catch(err => {
+        setLoading(false);
+        if (err.message.includes("email-already-in-use")) errorNotify("Email already in use");
+        else if (err.message.includes("invalid-email")) errorNotify("Invalid email");
+        else errorNotify("Something went wrong");
+      });
+  };
 
+  return (
+    <div className="min-h-[80vh] flex items-center justify-center px-4 py-12">
+      <Helmet><title>Remoto | Join</title></Helmet>
 
-        // password validation
-        if (password.length < 5) {
-            errorNotify('Password is less than 6 characters')
-            return
-        } else if (!/[A-Z]/.test(password)) {
-            errorNotify('Password should have at least 1 capital letter');
-            return
-        } else if (!/[^A-Za-z0-9]/.test(password)) {
-            errorNotify('Password should have at least 1 special character');
-            return
-        }
+      <div className="w-full max-w-md animate-fade-up">
+        <div className="bg-white rounded-2xl border border-slate-100 shadow-lg p-7 sm:p-9">
+          <div className="mb-6">
+            <h1 className="font-display text-3xl font-bold text-slate-900 mb-1">Create account</h1>
+            <p className="text-sm text-slate-500">Join thousands of professionals finding great work.</p>
+          </div>
 
-
-
-        // Connect to firebase
-        createUser(email, password)
-            .then(res => {
-                updateProfile(auth.currentUser,{
-                    displayName:name,photoURL:image
-                }).then(()=>{
-                    Swal.fire({
-                        position: 'top-middle',
-                        icon: 'success',
-                        title: 'Successfully signed in',
-                        showConfirmButton: false,
-                        timer: 1500
-                      })
-                    navigate(location?.state? location.state : '/');;
-                    setTimeout(() => { window.location.reload() }, 1000)
-                })
-            })
-            .catch(err => {
-                setLoading(false)
-                if (err.message === 'Firebase: Error (auth/email-already-in-use).') {
-                    errorNotify('Email already in use')
-                } else if (err.message === 'Firebase: Error (auth/invalid-email).') {
-                    errorNotify('Invalid email')
-                }
-
-
-            })
-    }
-    return (
-        <div className="flex flex-col
-         justify-center items-center gap-6 md:gap-10 mt-24">
-            <Helmet>
-                <title>Remoto | Join</title>
-            </Helmet>
-            <div className="md:border rounded md:shadow pt-8 md:pt-12 md:px-8 pb-8 px-5">
-                <h1 className="text-3xl text-center mb-2 font-medium">Sign Up</h1>
-                <p className="text-sm mb-5 text-center text-blue-500">Join the Community of Professionals</p>
-                <form onSubmit={handleSubmit}>
-                    <div className="grid grid-cols-1 md:grid-cols-2 md:my-9 gap-2 mb-3">
-                        <input type="text" className="w-full outline-none focus:border-blue-500 text-base border p-3 rounded" placeholder="Full Name" name="name" />
-                        <input type="email" name='email' className="w-full outline-none focus:border-blue-500 text-base border p-3 rounded" placeholder="Email or Phone" />
-                        <input type="text" name="image" className="w-full outline-none focus:border-blue-500 text-base border p-3 rounded" placeholder="Images URL" />
-                        <div className="relative">
-                            <input name="password" className="w-full focus:border-blue-500  text-base outline-none border p-3 rounded" type={visibility ? 'text' : 'password'} placeholder="Password" />
-                            <p onClick={() => setVisibility(!visibility)} className="absolute cursor-pointer font-semibold hover:text-blue-300 text-blue-500 right-5  bottom-3">{visibility ? 'hide' : 'show'}</p>
-                        </div>
-                    </div>
-                    <p className="text-xs mb-1 mt-5 text-center">By clicking agree and join , you agree to Remoto’s <span className="font-semibold text-blue-400">User  Agreement</span>, <span className="font-semibold text-blue-400">Privacy Policy</span>, and <span className="font-semibold text-blue-400">Cookie Policy</span>.</p>
-                    <button  className="mt-5 w-full mb-2 border rounded-full py-3 bg-blue-400 text-white font-semibold hover:bg-blue-600">{loading?<span className="loading loading-ball loading-xs"></span>:'Agree & Join'}</button>
-                </form>
-                <div className="flex items-center py-1 justify-between mb-2">
-                    <div className="flex-grow border-t border-gray-300"></div>
-                    <span className="flex-shrink mx-4 text-gray-600">or</span>
-                    <div className="flex-grow border-t border-gray-300"></div>
-                </div>
-
-                <button onClick={() => { connectGoogle().then(()=>{navigate(location?.state? location.state : '/');}) }} className="w-full font-medium border py-3 rounded-full flex hover:bg-slate-50 justify-center items-center gap-3"> <FontAwesomeIcon color="#0080FF" icon={faGoogle} /> <p>Continue with Google</p></button>
-                <p className="text-center mt-6">Already on Remoto? <Link to='/login'><span className="text-blue-500 cursor-pointer font-semibold">Sign in</span></Link></p>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label className="text-xs font-semibold text-slate-600 mb-1.5 block">Full Name</label>
+                <input type="text" name="name" className="input-clean" placeholder="Jane Doe" required />
+              </div>
+              <div>
+                <label className="text-xs font-semibold text-slate-600 mb-1.5 block">Email</label>
+                <input type="email" name="email" className="input-clean" placeholder="jane@example.com" required />
+              </div>
             </div>
-            <Toaster></Toaster>
+            <div>
+              <label className="text-xs font-semibold text-slate-600 mb-1.5 block">Profile Photo URL <span className="text-slate-300 font-normal">(optional)</span></label>
+              <input type="url" name="image" className="input-clean" placeholder="https://…" />
+            </div>
+            <div>
+              <label className="text-xs font-semibold text-slate-600 mb-1.5 block">Password</label>
+              <div className="relative">
+                <input
+                  name="password"
+                  type={visibility ? "text" : "password"}
+                  className="input-clean pr-16"
+                  placeholder="Min 6 chars, 1 capital, 1 special"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setVisibility(!visibility)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-semibold text-blue-500 hover:text-blue-700 transition"
+                >
+                  {visibility ? "Hide" : "Show"}
+                </button>
+              </div>
+            </div>
+
+            <p className="text-xs text-slate-400">
+              By joining, you agree to Remoto's{" "}
+              <a href="#" className="text-blue-500 hover:underline">Terms</a>,{" "}
+              <a href="#" className="text-blue-500 hover:underline">Privacy Policy</a>.
+            </p>
+
+            <button type="submit" className="btn-primary w-full py-3">
+              {loading ? <span className="loading loading-ball loading-xs" /> : "Create Account →"}
+            </button>
+          </form>
+
+          <div className="relative my-5">
+            <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-slate-100" /></div>
+            <span className="relative bg-white px-3 text-xs text-slate-400 mx-auto block w-fit">or</span>
+          </div>
+
+          <button
+            onClick={() => connectGoogle().then(() => navigate(location?.state || "/"))}
+            className="w-full border border-slate-200 rounded-xl py-3 flex items-center justify-center gap-3 text-sm font-medium text-slate-700 hover:bg-slate-50 transition"
+          >
+            <svg className="w-4 h-4" viewBox="0 0 24 24">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+            Continue with Google
+          </button>
         </div>
-    );
+
+        <p className="text-center text-sm text-slate-500 mt-5">
+          Already have an account?{" "}
+          <Link to="/login" className="font-semibold text-blue-600 hover:underline">Sign in →</Link>
+        </p>
+      </div>
+      <Toaster />
+    </div>
+  );
 };
 
 export default Join;
